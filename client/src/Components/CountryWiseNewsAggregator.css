@@ -1,0 +1,60 @@
+
+/* Header Styles */
+.header1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fdfdff; /* Dark background */
+    color: white; /* White text */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px; /* Space below the header */
+}
+
+/* Title Styles */
+.home-title1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 15px; /* Space below the title */
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(242, 239, 239, 0.5);
+}
+
+/* Search Bar Styles */
+.search-bar1 {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between label and select */
+}
+
+/* Label Styles */
+.country-label {
+    font-size: 1.2rem; /* Larger label font size */
+    font-weight: 500; /* Medium weight */
+}
+
+/* Select Styles */
+.search-input1 {
+    padding: 10px 15px; /* Padding for the select */
+    font-size: 1rem; /* Font size for the select */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #ffffff; /* White background */
+    color: #333; /* Dark text color */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: all 0.3s; /* Transition for hover effect */
+}
+
+/* Select Hover Effect */
+.search-input1:hover {
+    border: 1px solid #e94560; /* Highlight border on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Shadow on hover */
+}
+
+/* Select Focus Effect */
+.search-input1:focus {
+    outline: none; /* Remove default outline */
+    border: 1px solid #e94560; /* Highlight border on focus */
+    box-shadow: 0 0 5px rgba(233, 69, 96, 0.5); /* Glow effect */
+}

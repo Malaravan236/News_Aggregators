@@ -1,0 +1,111 @@
+/* Sports News Page Styling */
+.news-page1 {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /* Header */
+  .header1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .home-title1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #0073e6;
+    margin: 0;
+  }
+  
+  .search-bar1 {
+    display: flex;
+    width: 100%;
+    max-width: 500px;
+    margin: 10px 0;
+  }
+  
+  .search-input1 {
+    flex: 1;
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #0073e6;
+    border-radius: 5px;
+    outline: none;
+  }
+  
+  /* Articles container */
+  .articles-containe4 {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .articles-grid4 {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    width: 100%;
+    max-width: 1200px;
+    padding: 10px;
+  }
+  
+  /* Article card */
+  .article-card4 {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: left;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .article-card4:hover {
+    transform: scale(1.02);
+  }
+  
+  .article-image4 {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .article-content4 {
+    padding: 15px;
+  }
+  
+  .article-title4 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin: 0 0 10px;
+  }
+  
+  .article-date4 {
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  .article-description4 {
+    font-size: 1rem;
+    color: #555;
+    margin: 10px 0;
+  }
+  
+  .read-more4 {
+    display: inline-block;
+    margin-top: 10px;
+    color: #0073e6;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .read-more4:hover {
+    color: #005bb5;
+    text-decoration: underline;
+  }
+  

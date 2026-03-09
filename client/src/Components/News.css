@@ -1,0 +1,163 @@
+/* Center the entire page content */
+.news-page1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  background-color: #f8f9fa; /* Light background */
+  padding: 20px;
+  width:100vw;
+}
+
+/* Header styles */
+.header1 {
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.home-title1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #343a40;
+}
+
+/* Search bar styling */
+.search-bar1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px; /* Default smaller margin for small screens */
+  padding: 10px; /* Optional padding for better spacing on smaller screens */
+  width: 100%; /* Full-width for better scaling on smaller screens */
+}
+
+/* Medium screens (tablets and small desktops) */
+@media (min-width: 768px) {
+  .search-bar1 {
+    margin-bottom: 25px;
+    padding: 15px; /* Increased padding for medium screens */
+  }
+}
+
+/* Large screens (desktops and larger devices) */
+@media (min-width: 1024px) {
+  .search-bar1 {
+    margin-bottom: 30px;
+    padding: 20px; /* Further increased padding for large screens */
+    max-width: 600px; /* Optional max-width for center alignment on larger screens */
+  }
+}
+
+
+.search-input1 {
+  width: 300px;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 1rem;
+ 
+  margin-right: 10px;
+}
+
+.voice-search-button1 {
+  background-color: #f9fafb;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 50%; /* Makes the button circular */
+  cursor: pointer;
+  font-size: 1.2rem;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px; /* Adjust width for circular shape */
+  height: 50px; /* Adjust height for circular shape */
+}
+
+.voice-search-button1 img {
+  width: 70px; /* Resize image to fit inside the button */
+  height: 70px;
+  object-fit: cover; /* Ensures the image covers the container without distortion */
+  border-radius: 50%; /* Makes the image circular */
+}
+
+
+.voice-search-button1:hover {
+  background-color: #0056b3;
+}
+
+/* Articles container */
+.articles-container1 {
+  width: 100%;
+  max-width: 1400px;
+  display: flex;
+  justify-content: center;
+}
+
+.articles-grid1 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Responsive grid */
+  gap: 20px;
+  width: 100%;
+}
+
+/* Article card styling */
+.article-card1 {
+  background-color: white;
+  border-radius: 50px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out;
+}
+
+.article-card1:hover {
+  transform: translateY(-5px); /* Subtle hover effect */
+}
+
+.article-image1 {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.article-content1 {
+  padding: 15px;
+}
+
+.article-title1 {
+  font-size: 1.5rem;
+  
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.article-date1 {
+  font-size: 0.875rem;
+  
+  color: #6c757d;
+  margin-bottom: 15px;
+}
+
+.article-description1 {
+  font-size: 1rem;
+  
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.read-more1 {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.read-more1:hover {
+  text-decoration: underline;
+}
+
+
+
+

@@ -1,0 +1,191 @@
+/* Common Body Styles */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif; /* Use a clean and modern font */
+  background-color: #f4f4f4; /* Light background color for the body */
+}
+
+/* Login Page Styles */
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full height of the viewport */
+  width: 100vw; /* Full width of the viewport */
+  padding: 20px; /* Padding to prevent overflow on smaller screens */
+  box-sizing: border-box; /* Ensures padding is included in width calculations */
+  overflow: auto; /* Allows scrolling on very small screens */
+}
+
+/* Medium screens (tablets and small desktops) */
+@media (min-width: 768px) {
+  .login-page {
+    padding: 40px; /* Increase padding for medium screens */
+  }
+}
+
+/* Large screens (desktops and larger devices) */
+@media (min-width: 1024px) {
+  .login-page {
+    width: 100vw; /* Maintain full width */
+    padding: 60px; /* Further increase padding for larger screens */
+  }
+}
+
+/* Image Side */
+.image-side {
+  flex: 1; /* Take up 50% of the width */
+  overflow: hidden; /* Prevent image overflow */
+  display: flex; /* Enable flexbox */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+}
+
+.background-image {
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  object-fit: cover; /* Cover the container */
+  filter: brightness(95%); /* Darken the image slightly for better text readability */
+}
+
+/* Form Side */
+.form-side {
+  flex: 1; /* Take up 50% of the width */
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  justify-content: center; /* Center vertically */
+  padding: 40px; /* Padding for the form */
+  background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+  border-radius: 20px; /* Rounded corners for the form side */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Softer shadow for depth */
+}
+
+/* Login Box Styles */
+.login-container {
+  width: 100%; /* Make the container responsive */
+  max-width: 400px; /* Max width for the container */
+  margin: 0 auto; /* Center the container */
+}
+
+.login-box {
+  padding: 40px; /* Increased padding for better spacing */
+  border-radius: 60px; /* Smoother corners */
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15); /* Softer shadow for depth */
+  text-align: center; /* Center heading and form */
+  background: linear-gradient(to bottom right, #ffffff, #f0f0f0); /* Gradient background */
+}
+
+/* Headings */
+h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Input Group */
+.input-group {
+  margin-bottom: 20px; /* Increased space between input groups */
+}
+
+/* Labels */
+label {
+  display: block;
+  margin-bottom: 8px; /* More space below labels for better separation */
+  color: #444; /* Darker color for better contrast */
+}
+
+/* Input Fields */
+input {
+  width: 100%; /* Full-width inputs */
+  padding: 12px; /* Increased padding for better touch targets */
+  border: 1px solid #ddd;
+  border-radius: 60px; /* Match the signup input styling */
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+input:focus {
+  border-color: #e94560; /* Align input focus color with button */
+  box-shadow: 0 0 5px rgba(233, 69, 96, 0.5); /* Softer shadow on focus */
+  outline: none; /* Remove input outline */
+}
+
+/* Button Styles */
+.login-button {
+  width: 100%;
+  padding: 12px; /* Increased padding for better touch targets */
+  background-color: #e94560;
+  color: white;
+  border: none;
+  border-radius: 60px; /* Match the signup button styling */
+  font-size: 1.1rem;
+  cursor: pointer;
+  position: relative; /* To create a pseudo-element effect */
+  overflow: hidden; /* Prevent overflow of the pseudo-element */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+}
+
+.login-button:hover {
+  background-color: #c0392b; /* Darker shade on hover */
+  transform: translateY(-3px); /* Lift the button slightly on hover */
+}
+
+/* Pseudo-element for Button */
+.login-button::after {
+  content: ''; /* Add a pseudo-element */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.3); /* Light overlay on hover */
+  border-radius: 60px; /* Match the button radius */
+  transform: scale(0); /* Start with scale 0 */
+  transition: transform 0.3s ease; /* Smooth scale transition */
+}
+
+.login-button:hover::after {
+  transform: scale(1); /* Scale to full size on hover */
+}
+
+/* Message Styles */
+.message {
+  margin-top: 20px;
+  color: #e94560; /* Color for error/success message */
+  font-weight: bold;
+}
+
+/* Password Group */
+.password-group {
+  position: relative;
+}
+
+.password-group input {
+  padding-right: 40px; /* Space for the eye icon */
+}
+
+.password-toggle-icon {
+  position: absolute;
+  top: 70%;
+  right: 10px; /* Aligns icon closer to the right edge */
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hide image on smaller screens */
+@media (max-width: 600px) {
+  .image-side {
+    display: none; /* Hide the image side */
+  }
+
+  /* Adjust form side to take full width on small screens */
+  .form-side {
+    flex: 1;
+    width: 100%; /* Make form side take full width */
+    max-width: none; /* Remove max width if any is set */
+    padding: 20px; /* Adjust padding for smaller screens */
+  }
+}

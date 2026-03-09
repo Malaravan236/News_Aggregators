@@ -1,0 +1,146 @@
+/* Global Styles */
+body {
+  font-family: 'Arial', sans-serif; /* Set a clean and modern font */
+  background-color: #f4f4f4; /* Light background color for the body */
+  margin: 0; /* Remove default margin */
+}
+
+/* Sign Up Page Styles */
+.signup-page {
+  display: flex;
+  height: 100vh; /* Full height of the viewport */
+  width: 100vw; /* Full width of the viewport */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add subtle shadow around the entire page */
+}
+
+.image-side {
+  flex: 1; /* Take up 50% of the width */
+  overflow: hidden; /* Prevent image overflow */
+  position: relative; /* To position content inside it */
+}
+
+.background-image {
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  object-fit: cover; /* Cover the container */
+  filter: brightness(95%); /* Darken the image slightly for text readability */
+}
+
+.form-side {
+  flex: 1; /* Take up 50% of the width */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center vertically */
+  padding: 40px; /* Padding for the form */
+  background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+  border-radius: 20px; /* Rounded corners for the form side */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Softer shadow for depth */
+  transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.form-side:hover {
+  transform: scale(1.02); /* Slightly enlarge the form side on hover */
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center; /* Center align the heading */
+  font-weight: bold; /* Make the heading bold */
+}
+
+/* Form Group Styles */
+.form-group {
+  margin-bottom: 20px; /* Increased space between form groups */
+}
+
+/* Labels */
+label {
+  display: block;
+  margin-bottom: 8px; /* More space below labels for better separation */
+  color: #444; /* Darker color for better contrast */
+}
+
+/* Input Styles */
+.form-input {
+  width: 100%;
+  padding: 12px; /* Increased padding for better touch targets */
+  border: 1px solid #ddd;
+  border-radius: 60px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+.form-input:focus {
+  border-color: #e94560; /* Brighter border on focus */
+  box-shadow: 0 0 5px rgba(233, 69, 96, 0.5); /* Add a soft shadow on focus */
+  outline: none; /* Remove outline */
+}
+
+/* Submit Button Styles */
+.submit-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #e94560;
+  color: white;
+  border: none;
+  border-radius: 60px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+  position: relative; /* To create a pseudo-element effect */
+  overflow: hidden; /* Prevent overflow of the pseudo-element */
+}
+
+.submit-button:hover {
+  background-color: #c0392b;
+  transform: translateY(-3px); /* Lift the button slightly on hover */
+}
+
+/* Pseudo-element for Button */
+.submit-button::after {
+  content: ''; /* Add a pseudo-element */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.3); /* Light overlay on hover */
+  border-radius: 60px; /* Match the button radius */
+  transform: scale(0); /* Start with scale 0 */
+  transition: transform 0.3s ease; /* Smooth scale transition */
+}
+
+.submit-button:hover::after {
+  transform: scale(1); /* Scale to full size on hover */
+}
+
+/* Error/Success Message Styles */
+.message {
+  margin-top: 20px;
+  color: #e94560; /* Color for error/success message */
+  font-weight: bold;
+  text-align: center; /* Center align the message */
+}
+
+/* Additional Enhancements */
+.form-side:before {
+  content: ""; /* Decorative element */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.1); /* Very light overlay for form */
+  border-radius: 20px; /* Match form side radius */
+  z-index: -1; /* Send behind other elements */
+}
+.login-box {
+  padding: 80px; /* Increased padding for better spacing */
+  border-radius: 60px; /* Smoother corners */
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15); /* Softer shadow for depth */
+  text-align: center; /* Center heading and form */
+  background: linear-gradient(to bottom right, #ffffff, #f0f0f0); /* Gradient background */
+  max-width: 800px; /* Set a maximum width for the box */
+  margin: 0 auto; /* Center the box horizontally */
+}

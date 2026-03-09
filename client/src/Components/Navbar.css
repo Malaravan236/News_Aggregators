@@ -1,0 +1,170 @@
+/* src/components/Navbar.css */
+/* Navbar Styling */
+.navbar1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #020535;
+  color: white;
+  width: 98.9%;
+  height: 60px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  position: fixed; /* Keep it fixed at the top */
+  top: 0;
+  z-index: 100;
+  font-size: 10px;
+}
+
+/* Main Content Styling */
+.main-content1 {
+  padding-top: 60px; /* Equal to navbar height */
+}
+
+/* Logo Styling */
+.logo1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  font-family: 'Times New Roman', Times, serif;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  padding-left: 50px;
+}
+
+/* Navigation Links Styling */
+.nav-links1 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-right: 100px;
+}
+
+.nav-link1 {
+  margin: 0 20px;
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s, transform 0.3s;
+  position: relative;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-link1 i {
+  margin-right: 10px;
+}
+
+.nav-link1:hover {
+  color: #e94560;
+  transform: translateY(-3px);
+}
+
+/* Hover Underline Effect */
+.nav-link1::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #e94560;
+  transition: width 0.3s;
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  transform: translateX(-50%);
+}
+
+.nav-link1:hover::after {
+  width: 100%;
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+  .navbar1 {
+    padding: 10px 15px; /* Adjust padding for smaller screens */
+  }
+
+  .logo1 {
+    font-size: 1.6rem; /* Slightly smaller logo font */
+  }
+
+  .nav-links1 {
+    padding-right: 50px; /* Reduce padding on the right */
+  }
+
+  .nav-link1 {
+    font-size: 14px; /* Smaller font size for navigation links */
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar1 {
+    padding: 10px 15px; /* Reduced padding for smaller screens */
+  }
+
+  .logo1 {
+    font-size: 1.4rem; /* Further reduce logo font size */
+    padding-left: 20px; /* Less space on the left */
+  }
+
+  .nav-links1 {
+    display: none; /* Hide nav links on small screens */
+    width: 100%; /* Make sure the nav links span the entire width */
+    flex-direction: column;
+    background-color: #020535; /* Same background as navbar */
+    position: absolute;
+    top: 60px; /* Below the navbar */
+    left: 0;
+    padding: 20px;
+    z-index: 101;
+  }
+
+  .nav-link1 {
+    margin: 10px 0; /* More space between links */
+    font-size: 18px; /* Larger text for readability */
+  }
+
+  .navbar1.active .nav-links1 {
+    display: flex; /* Show nav links when navbar is active */
+  }
+
+  /* Hamburger menu styling */
+  .hamburger {
+    display: block;
+    cursor: pointer;
+    z-index: 102;
+  }
+
+  .hamburger span {
+    background-color: white;
+    display: block;
+    width: 30px;
+    height: 3px;
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+
+  .navbar1.active .hamburger span:nth-child(1) {
+    transform: rotate(-45deg);
+    position: relative;
+    top: 7px;
+  }
+
+  .navbar1.active .hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .navbar1.active .hamburger span:nth-child(3) {
+    transform: rotate(45deg);
+    position: relative;
+    top: -7px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo1 {
+    font-size: 1.2rem; /* Further decrease the logo font size */
+  }
+
+  .nav-link1 {
+    font-size: 12px; /* Smaller navigation link font */
+  }
+}
