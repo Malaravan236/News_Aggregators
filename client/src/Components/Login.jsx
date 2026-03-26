@@ -24,8 +24,12 @@ const Login = () => {
         {
           email,
           password,
-        }
+        },
+        
       );
+      localStorage.setItem('userEmail', response.data.email || email);
+login(response.data.email || email);
+navigate('/news');
 
       setMessage(response.data.message || 'Login successful');
 
