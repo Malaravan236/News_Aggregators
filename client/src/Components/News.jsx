@@ -72,27 +72,7 @@ const News = () => {
     }
   };
 
-const saveBookmark = async (article) => {
-  try {
-    const userEmail = localStorage.getItem('userEmail');
 
-    if (!userEmail) {
-      alert('Please login first');
-      return;
-    }
-
-    const response = await axios.post("http://127.0.0.1:8000/api/bookmark/", {
-      email: userEmail,
-      title: article.title,
-      url: article.url,
-      image: article.urlToImage
-    });
-
-    alert(response.data.message || "Bookmark saved successfully");
-  } catch (error) {
-    alert(error.response?.data?.error || "Failed to save bookmark");
-  }
-};
 
 
   const handleSearchButtonClick = async () => {
@@ -213,12 +193,7 @@ const saveBookmark = async (article) => {
 
 <br />
 
-<button
-  onClick={() => saveBookmark(article)}
-  className="bookmark-button"
->
-  Bookmark
-</button>
+
               </div>
             </div>
           ))}
