@@ -15,39 +15,52 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
-    e.preventDefault();
-    setMessage('');
+  e.preventDefault();
+  setMessage('');
 
-    try {
-      const response = await axios.post(
-        'http://127.0.0.1:8000/api/accounts/login/',
-        {
-          email,
-          password,
-        },
-        
-      );
-      localStorage.setItem('userEmail', response.data.email || email);
-login(response.data.email || email);
-navigate('/news');
-
-      setMessage(response.data.message || 'Login successful');
-
-      // token irundha mattum save pannum
-      if (response.data.token) {
-        localStorage.setItem('token', response.data.token);
+  try {
+    const response = await axios.post(
+      'http://127.0.0.1:8000/api/accounts/login/',
+      {
+        email,
+        password,
       }
+    );
 
-      login(response.data.email || email);
-      navigate('/news');
-    } catch (error) {
-      setMessage(
-        error.response?.data?.error ||
-          error.response?.data?.message ||
-          'An error occurred. Please try again.'
-      );
+    // Save user name
+    localStorage.setItem(
+      'userName',
+      response.data.name || ''
+    );
+
+    // Save user email
+    localStorage.setItem(
+      'userEmail',
+      response.data.email || email
+    );
+
+    // Update UserContext with name
+    login(response.data.name || '');
+
+    if (response.data.token) {
+      localStorage.setItem('token', response.data.token);
     }
-  };
+
+    setMessage(response.data.message || 'Login successful');
+
+    // Go to News page
+    navigate('/news');
+
+  } catch (error) {
+    setMessage(
+      error.response?.data?.error ||
+      error.response?.data?.message ||
+      'An error occurred. Please try again.'
+    );
+  }
+};
+ 
+  
 
   return (
     <div className="login-page">

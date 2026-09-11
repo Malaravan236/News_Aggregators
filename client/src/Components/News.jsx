@@ -3,6 +3,9 @@ import axios from 'axios';
 import './News.css';
 
 const News = () => {
+  const [userName, setUserName] = useState(
+    localStorage.getItem('userName') || ''
+  );
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -112,7 +115,11 @@ const News = () => {
   return (
     <div className="news-page1">
       <header className="header1">
-        <h1 className="home-title1">Latest News</h1>
+        <h1 className="welcome-user">Welcome, {userName} 👋</h1>
+
+        <h1 className="home-title1"> Latest News </h1>
+
+
         <div className="search-bar1">
           <input
             type="text"

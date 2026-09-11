@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './TamilNews.css';
+import "./SportsNews.css";
 
 const SportsNews = () => {
   const [articles, setArticles] = useState([]);

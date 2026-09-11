@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 import './Signup.css';
+import { UserContext } from '../context/UserContext';
 
 const Signup = () => {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -14,20 +16,27 @@ const Signup = () => {
 
   const navigate = useNavigate();
 
+  const { login } = useContext(UserContext);
+
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
 
   const validatePassword = (password) => {
-    const passwordRegex =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    const passwordRegex =/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     return passwordRegex.test(password);
   };
 
   const handleSignup = async (e) => {
     e.preventDefault();
     setMessage('');
+
+    if (!name.trim()) 
+      {
+        setMessage('Please enter your name');
+        return;
+      }
 
     if (!validateEmail(email)) {
       setMessage('Invalid email format');
@@ -50,23 +59,30 @@ const Signup = () => {
       const response = await axios.post(
         'http://127.0.0.1:8000/api/accounts/signup/',
         {
+          name,
           email,
           password,
         }
       );
 
-      setMessage(response.data.message || 'Signup successful');
+      // setMessage(response.data.message || 'Signup successful');
+      
+      if (response.status === 201) {
+        login(
+          response.data.name || name,
+          response.data.email || email
+        );
 
-      // Optional: 2 sec apram login page ku poidum
-      setTimeout(() => {
-        navigate('/login');
-      }, 1500);
+        navigate('/news');
+      }
+
+
     } catch (error) {
       if (error.response) {
         setMessage(
           error.response.data.error ||
-            error.response.data.message ||
-            'Signup failed'
+          error.response.data.message ||
+          'Signup failed'
         );
       } else {
         setMessage('An error occurred. Please try again.');
@@ -89,6 +105,16 @@ const Signup = () => {
           <h2>Signup</h2>
           <form onSubmit={handleSignup} className="signup-form">
             <div className="form-group">
+              <label>Name:</label>
+              <input type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)} required
+              className="form-input"
+              placeholder="Enter your name"
+              />
+            </div>  
+
+            <div className='form-group'>
               <label>Email:</label>
               <input
                 type="email"
