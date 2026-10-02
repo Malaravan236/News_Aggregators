@@ -58,3 +58,155 @@
     border: 1px solid #e94560; /* Highlight border on focus */
     box-shadow: 0 0 5px rgba(233, 69, 96, 0.5); /* Glow effect */
 }
+
+/* Main Page */
+.news-page1 {
+  padding: 10px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.header1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 20px 10px;
+  text-align: center;
+}
+
+.home-title1 {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.search-bar1 {
+  width: 100%;
+  max-width: 300px;
+}
+
+.search-input1 {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+/* Articles Grid - Desktop */
+.articles-container1 {
+  padding: 10px;
+}
+
+.articles-grid1 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.article-card1 {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.article-card1:hover {
+  transform: translateY(-5px);
+}
+
+.article-image1 {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.article-content1 {
+  padding: 15px;
+}
+
+.article-title1 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.article-date1 {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 8px;
+}
+
+.article-description1 {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 12px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.read-more1 {
+  display: inline-block;
+  background: #007bff;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* ================= MOBILE FIX DA - MUKKIYAM DA ================= */
+@media screen and (max-width: 768px) {
+  .home-title1 {
+    font-size: 22px;
+  }
+
+  .articles-grid1 {
+    grid-template-columns: 1fr; /* Mobile la 1 column thaan da */
+    gap: 15px;
+  }
+
+  .article-card1 {
+    margin: 0 5px;
+  }
+
+  .article-image1 {
+    height: 180px;
+  }
+
+  .header1 {
+    padding: 15px 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .news-page1 {
+    padding: 5px;
+  }
+  
+  .home-title1 {
+    font-size: 20px;
+  }
+
+  .articles-grid1 {
+    grid-template-columns: 1fr;
+  }
+
+  .article-title1 {
+    font-size: 16px;
+  }
+}
+
+.loading {
+  font-size: 18px;
+  color: #555;
+}
