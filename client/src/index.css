@@ -66,3 +66,25 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+
+/* GLOBAL MOBILE FIX DA */
+* {
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+  
+  /* Ella container kum mobile la padding fix da */
+  .container, .news-page, .news-page1 {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+  input, select, button {
+    max-width: 100%;
+  }
+}
