@@ -1,3 +1,4 @@
+import { API_BASE } from '../config/api';
 import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
@@ -14,18 +15,16 @@ const Login = () => {
   const { login } = useContext(UserContext);
   const navigate = useNavigate();
   
-  const API_BASE = "https://news-aggregator-backend-zwjl.onrender.com/api";
+  // const API_BASE = "https://news-aggregator-backend-zwjl.onrender.com/api";
+
   const handleLogin = async (e) => {
   e.preventDefault();
   setMessage('');
 
   try {
     const response = await axios.post(
-      'http://127.0.0.1:8000/api/accounts/login/',
-      {
-        email,
-        password,
-      }
+      `${API_BASE}/accounts/login/`, 
+      { email, password }
     );
 
     // Save user name

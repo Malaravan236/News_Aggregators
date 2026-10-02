@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './News.css';
+import { API_BASE } from '../config/api';
 
 const News = () => {
   const [userName, setUserName] = useState(
@@ -15,8 +16,7 @@ const News = () => {
     try {
       setLoading(true);
       setError('');
-
-      const response = await axios.get('http://127.0.0.1:8000/api/news/');
+      const response = await axios.get(`${API_BASE}/news/`);
       setArticles(response.data || []);
     } catch (err) {
       setError('Failed to fetch news articles. Please try again later.');
@@ -36,26 +36,21 @@ const News = () => {
   const handleVoiceSearch = () => {
     const SpeechRecognition =
       window.SpeechRecognition || window.webkitSpeechRecognition;
-
     if (!SpeechRecognition) {
       alert('Sorry, your browser does not support voice search. Please use Chrome or Edge.');
       return;
     }
-
     const recognition = new SpeechRecognition();
     recognition.continuous = false;
     recognition.interimResults = false;
-
     recognition.onresult = (event) => {
       const transcript = event.results[0][0].transcript;
       setSearchQuery(transcript);
       fetchArticlesBySearch(transcript);
     };
-
     recognition.onerror = (event) => {
       alert(`Speech recognition error: ${event.error}`);
     };
-
     recognition.start();
   };
 
@@ -63,9 +58,8 @@ const News = () => {
     try {
       setLoading(true);
       setError('');
-
       const response = await axios.get(
-        `http://127.0.0.1:8000/api/news/search/?q=${query}`
+        `${API_BASE}/news/search/?q=${query}`
       );
       setArticles(response.data || []);
     } catch (err) {
@@ -74,9 +68,6 @@ const News = () => {
       setLoading(false);
     }
   };
-
-
-
 
   const handleSearchButtonClick = async () => {
     if (!searchQuery.trim()) {
@@ -98,7 +89,7 @@ const News = () => {
         setError('Failed to share the article.');
       }
     } else {
-      alert('Sorry, your browser does not support sharing. Please use a compatible browser.');
+      alert('Sorry, your browser does not support sharing.');
     }
   };
 
@@ -116,10 +107,7 @@ const News = () => {
     <div className="news-page1">
       <header className="header1">
         <h1 className="welcome-user">Welcome, {userName} 👋</h1>
-
         <h1 className="home-title1"> Latest News </h1>
-
-
         <div className="search-bar1">
           <input
             type="text"
@@ -139,68 +127,20 @@ const News = () => {
           </button>
         </div>
       </header>
-
       <div className="articles-container1">
         <div className="articles-grid1">
           {filteredArticles.map((article) => (
             <div className="article-card1" key={article.url}>
-              <img
-                src={article.urlToImage}
-                alt={article.title}
-                className="article-image1"
-              />
+              <img src={article.urlToImage} alt={article.title} className="article-image1" />
               <div className="article-content1">
                 <h2 className="article-title1">{article.title || 'No Title Available'}</h2>
                 <p className="article-date1">
-                  Published:{' '}
-                  {article.publishedAt
-                    ? new Date(article.publishedAt).toLocaleDateString('en-GB', {
-                        day: '2-digit',
-                        month: 'long',
-                        year: 'numeric',
-                      })
-                    : 'N/A'}{' '}
-                  {article.publishedAt
-                    ? `at ${new Date(article.publishedAt).toLocaleTimeString()}`
-                    : ''}
+                  Published: {article.publishedAt? new Date(article.publishedAt).toLocaleDateString('en-GB') : 'N/A'}
                 </p>
-                <p className="article-description1">
-                  {article.description || 'No description available.'}
-                </p>
-                <a
-                  href={article.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="read-more1"
-                >
-                  Read More
-                </a>
+                <p className="article-description1">{article.description || 'No description available.'}</p>
+                <a href={article.url} target="_blank" rel="noopener noreferrer" className="read-more1">Read More</a>
                 <br />
-                <a
-                  href="/#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleShare(article);
-                  }}
-                  className="share-button1"
-                >
-                  Share Article
-                </a>
-
-                <a
-  href="/#"
-  onClick={(e) => {
-    e.preventDefault();
-    handleShare(article);
-  }}
-  className="share-button1"
->
-  Share Article
-</a>
-
-<br />
-
-
+                <a href="/#" onClick={(e) => { e.preventDefault(); handleShare(article); }} className="share-button1">Share Article</a>
               </div>
             </div>
           ))}

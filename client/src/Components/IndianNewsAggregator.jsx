@@ -1,3 +1,4 @@
+import { API_BASE } from '../config/api';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './IndianNewsAggregator.css';
@@ -11,7 +12,7 @@ const IndianNewsAggregator = () => {
   const fetchIndianNews = async () => {
     try {
       const response = await axios.get(
-        'http://127.0.0.1:8000/api/news/search/?q=india'
+        `${API_BASE}/news/search/?q=india` 
       );
 
       if (response.data && response.data.length > 0) {
