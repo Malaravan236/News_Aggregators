@@ -7,6 +7,8 @@ import './Home.css';
 const HomePage = () => {
   const [email, setEmail] = useState("");
 
+  const API_BASE = "https://news-aggregator-backend-zwjl.onrender.com/api";
+
   // Function to handle email submission
   const handleEmailSubmit = async (e) => {
     e.preventDefault();

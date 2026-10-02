@@ -13,7 +13,8 @@ const Login = () => {
 
   const { login } = useContext(UserContext);
   const navigate = useNavigate();
-
+  
+  const API_BASE = "https://news-aggregator-backend-zwjl.onrender.com/api";
   const handleLogin = async (e) => {
   e.preventDefault();
   setMessage('');
