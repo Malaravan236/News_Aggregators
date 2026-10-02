@@ -8,9 +8,14 @@ from django.contrib.auth.models import User
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
+from dotenv import load_dotenv
+load_dotenv()
 
-API_KEY = "20f2f70cd4ad41c592c0b540082b95d3"
+import os
+API_KEY = os.environ.get("NEWS_API_KEY")
 
+if not API_KEY:
+    print("NOT API KEY! To check .env file!")
 
 @api_view(['GET'])
 def get_news(request):
