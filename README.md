@@ -30,7 +30,7 @@ A Full Stack News Aggregator Web Application that brings the latest news from di
 
 ![Country News](screenshots/country-news.png)
 
-![Country News Page 2](screenshots/country-news-2.png)
+
 
 ### 🔍 Filter Page
 
