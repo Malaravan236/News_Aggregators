@@ -1,16 +1,6 @@
-# Python
-venv/
-backend/venv/
+﻿venv/
+.venv/
 __pycache__/
 *.pyc
-
-# React
-node_modules/
-client/node_modules/
-dist/
-
-# Environment
+db.sqlite3
 .env
-
-# VS Code
-.vscode/
